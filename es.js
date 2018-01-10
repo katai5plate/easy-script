@@ -61,7 +61,34 @@
                 }
                 return r /= a.length;
             },
+
         },
+
+        // 文字列操作を扱う区分
+        str:{
+            cut: (s,n,l)=>s.replace(new RegExp("(.{"+n+"})","g"),"$1"+l),
+            pad: (s,p,l)=>(p+s).slice(-l),
+        },
+
+        // 便利ツール的な区分
+        api: {
+            DL: (s,n)=>{
+                let a = document.createElement('a');
+                a.download = n;
+                a.href = s;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            },
+            cps: (x)=>{
+                let t = document.createElement('div');
+                t.appendChild(document.createElement('pre')).textContent = x;
+                document.body.appendChild(t);
+                document.getSelection().selectAllChildren(t);
+                document.execCommand('copy');
+                document.body.removeChild(t);
+            }
+        }
         
     }
 )
