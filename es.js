@@ -44,6 +44,12 @@
             },
         },
 
+        // JSONを扱う区分
+        json: {
+            enc: (x)=>JSON.stringify(x),
+            dec: (x)=>JSON.parse(x),
+        },
+
         // 計算関係を扱う区分
         math: {
             sum: (a) => {
@@ -87,6 +93,24 @@
                 document.getSelection().selectAllChildren(t);
                 document.execCommand('copy');
                 document.body.removeChild(t);
+            },
+            F5: ()=>{location.reload();},
+            sss: (m,k,v)=>{
+                switch (m) {
+                    case "set":
+                        window.sessionStorage.setItem([k],[v]);
+                        break;
+                    case "get":
+                        return window.sessionStorage.getItem([k]);
+                    case "del":
+                        window.sessionStorage.removeItem([k]);
+                        break;
+                    case "clear":
+                        window.sessionStorage.clear();
+                        break;
+                    default:
+                        return window.sessionStorage;
+                }
             }
         }
         
