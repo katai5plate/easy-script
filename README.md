@@ -52,7 +52,7 @@ es.sw(
 配列 = es.cell.gclm([{},{}...],キー名,詰めるならtrue);
 ```
 
-## JSON
+### JSON
 - JSONを扱う
 #### es.json.enc
 - 変数をJSON文字列化する
